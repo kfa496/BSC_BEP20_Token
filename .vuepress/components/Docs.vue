@@ -2,7 +2,7 @@
     <div>
         <b-jumbotron text-variant="white"
                      header="BEP20 Token Documentation"
-                     class="mb-0 peach-gradient"
+                     class="mb-0 flickr-gradient"
                      fluid>
             <template #lead>
                 BEP20 Token Generator Documentation.

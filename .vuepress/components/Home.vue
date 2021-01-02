@@ -2,7 +2,7 @@
     <div>
         <b-jumbotron text-variant="white"
                      header="BEP20 Token Generator"
-                     class="mb-0 blue-gradient"
+                     class="mb-0 wiretap-gradient"
                      fluid>
             <template #lead>
                 Create a BEP20 Token in less than a minute with the new Smart Contract Generator for BEP20 Token.

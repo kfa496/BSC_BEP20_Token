@@ -2,7 +2,7 @@
     <div>
         <b-jumbotron text-variant="white"
                      header="Create your BEP20 Token"
-                     class="mb-0 aqua-gradient"
+                     class="mb-0 kingyna-gradient"
                      fluid>
             <template #lead>
                 Easily deploy Smart Contract for a Standard, Capped, Mintable, Burnable BEP20 Token.

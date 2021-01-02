@@ -30,6 +30,27 @@ body {
     background: linear-gradient(40deg,#2096ff,#05ffa3)!important
   }
 
+  .wiretap-gradient {
+    background: #8a2387!important;
+    background: -webkit-linear-gradient(50deg,#8a2387,#e94057,#f27121)!important;
+    background: -o-linear-gradient(50deg,#8a2387,#e94057,#f27121)!important;
+    background: linear-gradient(40deg,#8a2387,#e94057,#f27121)!important;
+  }
+
+  .kingyna-gradient {
+    background: #1a2a6c!important;
+    background: -webkit-linear-gradient(50deg,#1a2a6c,#b21f1f,#fdbb2d)!important;
+    background: -o-linear-gradient(50deg,#1a2a6c,#b21f1f,#fdbb2d)!important;
+    background: linear-gradient(40deg,#1a2a6c,#b21f1f,#fdbb2d)!important;
+  }
+
+  .flickr-gradient {
+    background: #ff0084!important;
+    background: -webkit-linear-gradient(50deg,#ff0084,#33001b)!important;
+    background: -o-linear-gradient(50deg,#ff0084,#33001b)!important;
+    background: linear-gradient(40deg,#ff0084,#33001b)!important;
+  }
+
   .footer {
     .list-group-item {
       background: none;
