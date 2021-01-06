@@ -35,18 +35,20 @@
                             <ui--loader :loading="true"></ui--loader>
                         </div>
                         <div v-else>
-                            <b class="text-success">Well! Transaction done!</b><br>
+                            <h6 class="text-success">Well! Transaction done!</h6>
                             Transaction Hash:
-                            <b-link :href="trx.link" target="_blank"><span v-html="trx.hash"></span></b-link><br>
+                            <a :href="trx.link" target="_blank"><span v-html="trx.hash"></span></a><br>
                             <hr>
                             <div v-if="!token.address">
-                                <b>Retrieving Token.</b>
+                                <h6>Retrieving Token.</h6>
                                 <p>Please wait...</p>
                                 <ui--loader :loading="true"></ui--loader>
                             </div>
                             <div v-else>
-                                Your Token address:<br>
-                                <h6>{{ token.address }}</h6>
+                                <h6 class="text-info">Your Token:</h6>
+                                <h5>{{ token.name }} ({{ token.symbol }})</h5>
+                                <h6>Address: {{ token.address }}</h6>
+                                <small class="text-muted">Supply: {{ token.initialBalance }} {{ token.symbol }}</small>
                                 <hr>
                                 <b-link :href="token.link" target="_blank" class="btn btn-primary my-2">
                                     <b-icon-arrow-up-right-circle-fill></b-icon-arrow-up-right-circle-fill>

@@ -1,3 +1,5 @@
+const vars = require('./.env.json');
+
 module.exports = {
   description: 'Create a BEP20 Token in less than a minute with the new Smart Contract Generator for BEP20 Token. No login. No setup. No coding required.',
   base: '/bep20-generator/',
@@ -18,11 +20,12 @@ module.exports = {
   ],
   plugins: [
     ['@vuepress/google-analytics', {
-      ga: 'UA-115756440-2',
+      ga: vars.gaId,
     }],
     ['vuepress-plugin-facebook-pixel', {
-      pixelId: '373489733749849',
+      pixelId: vars.fbPixelId,
     }],
   ],
-  defaultNetwork: 'mainnet',
+  defaultNetwork: vars.defaultNetwork,
+  serviceReceiver: vars.serviceReceiver,
 };
