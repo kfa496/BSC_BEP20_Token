@@ -19,39 +19,9 @@ meta:
 
 Easily deploy Smart Contract for a Standard, Capped, Mintable, Burnable BEP20 Token.
 
-## Smart Contracts Source
- 
-Discover Smart Contracts source [here](https://github.com/vittominacori/bep20-generator).
+## Try it
 
-## Install dependencies
-
-```bash
-npm install
-```
-
-## Lint
-
-```bash
-npm run lint
-```
-
-## Run DEV server
-
-```bash
-npm run dev
-```
-
-## Build dist
-
-```bash
-npm run build
-```
-
-## Deploy to gh-pages branch
-
-```bash
-npm run deploy
-```
+https://vittominacori.github.io/bep20-generator/
 
 ## License
 
