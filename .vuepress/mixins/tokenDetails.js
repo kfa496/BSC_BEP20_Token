@@ -28,7 +28,7 @@ export default {
           mintable: false,
           burnable: false,
           removeCopyright: true,
-          price: 1.5,
+          price: 2.5,
         },
         {
           name: 'BurnableBEP20',
@@ -42,7 +42,7 @@ export default {
           mintable: false,
           burnable: true,
           removeCopyright: true,
-          price: 2.5,
+          price: 4.5,
         },
         {
           name: 'MintableBEP20',
@@ -56,7 +56,7 @@ export default {
           mintable: true,
           burnable: false,
           removeCopyright: true,
-          price: 3.5,
+          price: 5.5,
         },
         {
           name: 'CommonBEP20',
@@ -70,7 +70,7 @@ export default {
           mintable: true,
           burnable: true,
           removeCopyright: true,
-          price: 5.5,
+          price: 8.5,
         },
       ],
     };
