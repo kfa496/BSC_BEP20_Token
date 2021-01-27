@@ -643,10 +643,10 @@
           break;
         case 'StandardBEP20':
         case 'BurnableBEP20':
-        case 'MintableBEP20':
           params.push(decimals);
           params.push(initialBalance);
           break;
+        case 'MintableBEP20':
         case 'CommonBEP20':
           params.push(decimals);
           params.push(cap);
