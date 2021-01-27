@@ -3,9 +3,6 @@
 /*
  * Token has been generated for FREE using https://vittominacori.github.io/bep20-generator/
  *
- * Smart Contract Source Code: https://github.com/vittominacori/bep20-generator
- * Web Site Source Code: https://github.com/vittominacori/bep20-generator/tree/dapp
- *
  * NOTE: "Contract Source Code Verified (Similar Match)" means that this Token is similar to other tokens deployed
  *  using the same generator. It is not an issue. It means that you won't need to verify your source code because of
  *  it is already verified.
@@ -19,6 +16,8 @@
  */
 
 // File: @openzeppelin/contracts/GSN/Context.sol
+
+
 
 pragma solidity ^0.7.0;
 
@@ -686,52 +685,15 @@ contract BEP20 is Ownable, IBEP20 {
     function _beforeTokenTransfer(address from, address to, uint256 amount) internal virtual { }
 }
 
-// File: contracts/service/ServiceReceiver.sol
-
-
-
-pragma solidity ^0.7.0;
-
-
-/**
- * @title ServiceReceiver
- * @dev Implementation of the ServiceReceiver
- */
-contract ServiceReceiver is Ownable {
-
-    mapping (bytes32 => uint256) private _prices;
-
-    event Created(string serviceName, address indexed serviceAddress);
-
-    function pay(string memory serviceName) public payable {
-        require(msg.value == _prices[_toBytes32(serviceName)], "ServiceReceiver: incorrect price");
-
-        emit Created(serviceName, _msgSender());
-    }
-
-    function getPrice(string memory serviceName) public view returns (uint256) {
-        return _prices[_toBytes32(serviceName)];
-    }
-
-    function setPrice(string memory serviceName, uint256 amount) public onlyOwner {
-        _prices[_toBytes32(serviceName)] = amount;
-    }
-
-    function withdraw(uint256 amount) public onlyOwner {
-        payable(owner()).transfer(amount);
-    }
-
-    function _toBytes32(string memory serviceName) private pure returns (bytes32) {
-        return keccak256(abi.encode(serviceName));
-    }
-}
-
 // File: contracts/service/ServicePayer.sol
 
 
 
 pragma solidity ^0.7.0;
 
+interface IPayable {
+    function pay(string memory serviceName) external payable;
+}
 
 /**
  * @title ServicePayer
@@ -740,7 +702,7 @@ pragma solidity ^0.7.0;
 abstract contract ServicePayer {
 
     constructor (address payable receiver, string memory serviceName) payable {
-        ServiceReceiver(receiver).pay{value: msg.value}(serviceName);
+        IPayable(receiver).pay{value: msg.value}(serviceName);
     }
 }
 
@@ -793,7 +755,7 @@ pragma solidity ^0.7.0;
  * @author BEP20 Generator (https://vittominacori.github.io/bep20-generator)
  * @dev Implementation of the SimpleBEP20
  */
-contract SimpleBEP20 is BEP20, ServicePayer, GeneratorCopyright("v1.0.0") {
+contract SimpleBEP20 is BEP20, ServicePayer, GeneratorCopyright("v1.1.0") {
 
     constructor (
         string memory name,

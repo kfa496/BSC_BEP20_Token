@@ -5,7 +5,7 @@
 
 |  File Name  |  SHA-1 Hash  |
 |-------------|--------------|
-| dist/MintableBEP20.dist.sol | 4872a4fea53e96deb9c99b5a9d3c25b988c65220 |
+| dist/MintableBEP20.dist.sol | 068bc06b97e910a9a052e0c482cfadaa91958a52 |
 
 
 ### Contracts Description Table
@@ -68,26 +68,28 @@
 | └ | _setupDecimals | Internal 🔒 | 🛑  | |
 | └ | _beforeTokenTransfer | Internal 🔒 | 🛑  | |
 ||||||
+| **BEP20Capped** | Implementation | BEP20 |||
+| └ | <Constructor> | Public ❗️ | 🛑  |NO❗️ |
+| └ | cap | Public ❗️ |   |NO❗️ |
+| └ | _beforeTokenTransfer | Internal 🔒 | 🛑  | |
+||||||
 | **BEP20Mintable** | Implementation | BEP20 |||
 | └ | mintingFinished | Public ❗️ |   |NO❗️ |
 | └ | mint | Public ❗️ | 🛑  | canMint |
 | └ | finishMinting | Public ❗️ | 🛑  | canMint |
 | └ | _finishMinting | Internal 🔒 | 🛑  | |
 ||||||
-| **ServiceReceiver** | Implementation | Ownable |||
-| └ | pay | Public ❗️ |  💵 |NO❗️ |
-| └ | getPrice | Public ❗️ |   |NO❗️ |
-| └ | setPrice | Public ❗️ | 🛑  | onlyOwner |
-| └ | withdraw | Public ❗️ | 🛑  | onlyOwner |
-| └ | _toBytes32 | Private 🔐 |   | |
+| **IPayable** | Interface |  |||
+| └ | pay | External ❗️ |  💵 |NO❗️ |
 ||||||
 | **ServicePayer** | Implementation |  |||
 | └ | <Constructor> | Public ❗️ |  💵 |NO❗️ |
 ||||||
-| **MintableBEP20** | Implementation | BEP20Mintable, ServicePayer |||
-| └ | <Constructor> | Public ❗️ |  💵 | BEP20 ServicePayer |
+| **MintableBEP20** | Implementation | BEP20Capped, BEP20Mintable, ServicePayer |||
+| └ | <Constructor> | Public ❗️ |  💵 | BEP20 BEP20Capped ServicePayer |
 | └ | _mint | Internal 🔒 | 🛑  | onlyOwner |
 | └ | _finishMinting | Internal 🔒 | 🛑  | onlyOwner |
+| └ | _beforeTokenTransfer | Internal 🔒 | 🛑  | |
 
 
 ### Legend

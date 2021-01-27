@@ -2,6 +2,7 @@
 
 pragma solidity ^0.7.0;
 
+import "./lib/BEP20Capped.sol";
 import "./lib/BEP20Mintable.sol";
 
 import "../../service/ServicePayer.sol";
@@ -10,16 +11,18 @@ import "../../service/ServicePayer.sol";
  * @title MintableBEP20
  * @dev Implementation of the MintableBEP20
  */
-contract MintableBEP20 is BEP20Mintable, ServicePayer {
+contract MintableBEP20 is BEP20Capped, BEP20Mintable, ServicePayer {
 
     constructor (
         string memory name,
         string memory symbol,
         uint8 decimals,
+        uint256 cap,
         uint256 initialBalance,
         address payable feeReceiver
     )
         BEP20(name, symbol)
+        BEP20Capped(cap)
         ServicePayer(feeReceiver, "MintableBEP20")
         payable
     {
@@ -46,5 +49,12 @@ contract MintableBEP20 is BEP20Mintable, ServicePayer {
      */
     function _finishMinting() internal override onlyOwner {
         super._finishMinting();
+    }
+
+    /**
+     * @dev See {BEP20-_beforeTokenTransfer}. See {BEP20Capped-_beforeTokenTransfer}.
+     */
+    function _beforeTokenTransfer(address from, address to, uint256 amount) internal override(BEP20, BEP20Capped) {
+        super._beforeTokenTransfer(from, to, amount);
     }
 }

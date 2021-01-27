@@ -15,7 +15,7 @@ contract('SimpleBEP20', function ([owner, other, thirdParty]) {
 
   const fee = 0;
 
-  const version = 'v1.0.0';
+  const version = 'v1.1.0';
 
   beforeEach(async function () {
     this.serviceReceiver = await ServiceReceiver.new({ from: owner });

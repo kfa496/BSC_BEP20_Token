@@ -5,7 +5,7 @@
 
 |  File Name  |  SHA-1 Hash  |
 |-------------|--------------|
-| dist/BurnableBEP20.dist.sol | c6b9515f052b612a8cef28ce27d93603b37d7526 |
+| dist/BurnableBEP20.dist.sol | da246e702247f2b9da42740c03dce40ae5f37ba0 |
 
 
 ### Contracts Description Table
@@ -72,12 +72,8 @@
 | └ | burn | Public ❗️ | 🛑  |NO❗️ |
 | └ | burnFrom | Public ❗️ | 🛑  |NO❗️ |
 ||||||
-| **ServiceReceiver** | Implementation | Ownable |||
-| └ | pay | Public ❗️ |  💵 |NO❗️ |
-| └ | getPrice | Public ❗️ |   |NO❗️ |
-| └ | setPrice | Public ❗️ | 🛑  | onlyOwner |
-| └ | withdraw | Public ❗️ | 🛑  | onlyOwner |
-| └ | _toBytes32 | Private 🔐 |   | |
+| **IPayable** | Interface |  |||
+| └ | pay | External ❗️ |  💵 |NO❗️ |
 ||||||
 | **ServicePayer** | Implementation |  |||
 | └ | <Constructor> | Public ❗️ |  💵 |NO❗️ |

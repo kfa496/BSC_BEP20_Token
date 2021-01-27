@@ -2,6 +2,8 @@
 
 // File: @openzeppelin/contracts/GSN/Context.sol
 
+
+
 pragma solidity ^0.7.0;
 
 /*
@@ -826,52 +828,15 @@ abstract contract BEP20Burnable is Context, BEP20 {
     }
 }
 
-// File: contracts/service/ServiceReceiver.sol
-
-
-
-pragma solidity ^0.7.0;
-
-
-/**
- * @title ServiceReceiver
- * @dev Implementation of the ServiceReceiver
- */
-contract ServiceReceiver is Ownable {
-
-    mapping (bytes32 => uint256) private _prices;
-
-    event Created(string serviceName, address indexed serviceAddress);
-
-    function pay(string memory serviceName) public payable {
-        require(msg.value == _prices[_toBytes32(serviceName)], "ServiceReceiver: incorrect price");
-
-        emit Created(serviceName, _msgSender());
-    }
-
-    function getPrice(string memory serviceName) public view returns (uint256) {
-        return _prices[_toBytes32(serviceName)];
-    }
-
-    function setPrice(string memory serviceName, uint256 amount) public onlyOwner {
-        _prices[_toBytes32(serviceName)] = amount;
-    }
-
-    function withdraw(uint256 amount) public onlyOwner {
-        payable(owner()).transfer(amount);
-    }
-
-    function _toBytes32(string memory serviceName) private pure returns (bytes32) {
-        return keccak256(abi.encode(serviceName));
-    }
-}
-
 // File: contracts/service/ServicePayer.sol
 
 
 
 pragma solidity ^0.7.0;
 
+interface IPayable {
+    function pay(string memory serviceName) external payable;
+}
 
 /**
  * @title ServicePayer
@@ -880,7 +845,7 @@ pragma solidity ^0.7.0;
 abstract contract ServicePayer {
 
     constructor (address payable receiver, string memory serviceName) payable {
-        ServiceReceiver(receiver).pay{value: msg.value}(serviceName);
+        IPayable(receiver).pay{value: msg.value}(serviceName);
     }
 }
 

@@ -5,7 +5,7 @@
 
 |  File Name  |  SHA-1 Hash  |
 |-------------|--------------|
-| dist/SimpleBEP20.dist.sol | 5cc3eb3c9ca4a92f761b3fdb28076859e60844e3 |
+| dist/SimpleBEP20.dist.sol | d353368dbede66a285c7679541cd532f9bef8d85 |
 
 
 ### Contracts Description Table
@@ -68,12 +68,8 @@
 | └ | _setupDecimals | Internal 🔒 | 🛑  | |
 | └ | _beforeTokenTransfer | Internal 🔒 | 🛑  | |
 ||||||
-| **ServiceReceiver** | Implementation | Ownable |||
-| └ | pay | Public ❗️ |  💵 |NO❗️ |
-| └ | getPrice | Public ❗️ |   |NO❗️ |
-| └ | setPrice | Public ❗️ | 🛑  | onlyOwner |
-| └ | withdraw | Public ❗️ | 🛑  | onlyOwner |
-| └ | _toBytes32 | Private 🔐 |   | |
+| **IPayable** | Interface |  |||
+| └ | pay | External ❗️ |  💵 |NO❗️ |
 ||||||
 | **ServicePayer** | Implementation |  |||
 | └ | <Constructor> | Public ❗️ |  💵 |NO❗️ |
