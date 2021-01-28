@@ -513,7 +513,7 @@
                                         "Gas" is the name for a special unit used in BSC. It measures how much
                                         "work" an action or set of actions takes to perform.<br>
                                         Every operation that can be performed by a transaction or contract on the
-                                        Ethereum platform costs a certain number of gas, with operations that require
+                                        BSC platform costs a certain number of gas, with operations that require
                                         more computational resources costing more gas than operations that require few
                                         computational resources.<br>
                                         The reason gas is important is that it helps to ensure an appropriate fee is

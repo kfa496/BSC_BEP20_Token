@@ -6,6 +6,7 @@ import StandardBEP20 from '../abi/token/StandardBEP20.json';
 import BurnableBEP20 from '../abi/token/BurnableBEP20.json';
 import MintableBEP20 from '../abi/token/MintableBEP20.json';
 import CommonBEP20 from '../abi/token/CommonBEP20.json';
+import UnlimitedBEP20 from '../abi/token/UnlimitedBEP20.json';
 
 import ServiceReceiverArtifact from '../abi/service/ServiceReceiver.json';
 
@@ -50,6 +51,7 @@ export default {
         BurnableBEP20,
         MintableBEP20,
         CommonBEP20,
+        UnlimitedBEP20,
       },
       contracts: {
         token: null,
@@ -66,7 +68,7 @@ export default {
       }
 
       if (checkWeb3 && (typeof window.ethereum !== 'undefined')) {
-        console.log('injected ethereum'); // eslint-disable-line no-console
+        console.log('injected bsc'); // eslint-disable-line no-console
         this.web3Provider = window.ethereum;
 
         this.web3 = new Web3(this.web3Provider);
@@ -80,7 +82,7 @@ export default {
           await this.initWeb3(network, false);
         }
       } else {
-        console.log('provided ethereum'); // eslint-disable-line no-console
+        console.log('provided bsc'); // eslint-disable-line no-console
         this.network.current = this.network.list[network];
         this.web3Provider = new Web3.providers.HttpProvider(this.network.list[network].web3Provider);
         this.web3 = new Web3(this.web3Provider);

@@ -643,6 +643,7 @@
           break;
         case 'StandardBEP20':
         case 'BurnableBEP20':
+        case 'UnlimitedBEP20':
           params.push(decimals);
           params.push(initialBalance);
           break;
