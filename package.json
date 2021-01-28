@@ -1,6 +1,6 @@
 {
   "name": "bep20-generator",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "The new Smart Contract Generator for BEP20 Token.",
   "files": [
     "contracts",

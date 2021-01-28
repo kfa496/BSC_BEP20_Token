@@ -1,20 +1,5 @@
 // SPDX-License-Identifier: MIT
 
-/*
- * Token has been generated for FREE using https://vittominacori.github.io/bep20-generator/
- *
- * NOTE: "Contract Source Code Verified (Similar Match)" means that this Token is similar to other tokens deployed
- *  using the same generator. It is not an issue. It means that you won't need to verify your source code because of
- *  it is already verified.
- *
- * DISCLAIMER: GENERATOR'S AUTHOR IS FREE OF ANY LIABILITY REGARDING THE TOKEN AND THE USE THAT IS MADE OF IT.
- *  The following code is provided under MIT License. Anyone can use it as per their needs.
- *  The generator's purpose is to make people able to tokenize their ideas without coding or paying for it.
- *  Source code is well tested and continuously updated to reduce risk of bugs and to introduce language optimizations.
- *  Anyway the purchase of tokens involves a high degree of risk. Before acquiring tokens, it is recommended to
- *  carefully weighs all the information and risks detailed in Token owner's Conditions.
- */
-
 // File: @openzeppelin/contracts/GSN/Context.sol
 
 
@@ -685,6 +670,117 @@ contract BEP20 is Ownable, IBEP20 {
     function _beforeTokenTransfer(address from, address to, uint256 amount) internal virtual { }
 }
 
+// File: contracts/token/BEP20/lib/BEP20Mintable.sol
+
+
+
+pragma solidity ^0.7.0;
+
+
+/**
+ * @title BEP20Mintable
+ * @dev Implementation of the BEP20Mintable. Extension of {BEP20} that adds a minting behaviour.
+ */
+abstract contract BEP20Mintable is BEP20 {
+
+    // indicates if minting is finished
+    bool private _mintingFinished = false;
+
+    /**
+     * @dev Emitted during finish minting
+     */
+    event MintFinished();
+
+    /**
+     * @dev Tokens can be minted only before minting finished.
+     */
+    modifier canMint() {
+        require(!_mintingFinished, "BEP20Mintable: minting is finished");
+        _;
+    }
+
+    /**
+     * @return if minting is finished or not.
+     */
+    function mintingFinished() public view returns (bool) {
+        return _mintingFinished;
+    }
+
+    /**
+     * @dev Function to mint tokens.
+     *
+     * WARNING: it allows everyone to mint new tokens. Access controls MUST be defined in derived contracts.
+     *
+     * @param account The address that will receive the minted tokens
+     * @param amount The amount of tokens to mint
+     */
+    function mint(address account, uint256 amount) public canMint {
+        _mint(account, amount);
+    }
+
+    /**
+     * @dev Function to stop minting new tokens.
+     *
+     * WARNING: it allows everyone to finish minting. Access controls MUST be defined in derived contracts.
+     */
+    function finishMinting() public canMint {
+        _finishMinting();
+    }
+
+    /**
+     * @dev Function to stop minting new tokens.
+     */
+    function _finishMinting() internal virtual {
+        _mintingFinished = true;
+
+        emit MintFinished();
+    }
+}
+
+// File: contracts/token/BEP20/lib/BEP20Burnable.sol
+
+
+
+pragma solidity ^0.7.0;
+
+
+
+/**
+ * @dev Extension of {BEP20} that allows token holders to destroy both their own
+ * tokens and those that they have an allowance for, in a way that can be
+ * recognized off-chain (via event analysis).
+ */
+abstract contract BEP20Burnable is Context, BEP20 {
+    using SafeMath for uint256;
+
+    /**
+     * @dev Destroys `amount` tokens from the caller.
+     *
+     * See {BEP20-_burn}.
+     */
+    function burn(uint256 amount) public virtual {
+        _burn(_msgSender(), amount);
+    }
+
+    /**
+     * @dev Destroys `amount` tokens from `account`, deducting from the caller's
+     * allowance.
+     *
+     * See {BEP20-_burn} and {BEP20-allowance}.
+     *
+     * Requirements:
+     *
+     * - the caller must have allowance for ``accounts``'s tokens of at least
+     * `amount`.
+     */
+    function burnFrom(address account, uint256 amount) public virtual {
+        uint256 decreasedAllowance = allowance(account, _msgSender()).sub(amount, "BEP20: burn amount exceeds allowance");
+
+        _approve(account, _msgSender(), decreasedAllowance);
+        _burn(account, amount);
+    }
+}
+
 // File: contracts/service/ServicePayer.sol
 
 
@@ -706,42 +802,7 @@ abstract contract ServicePayer {
     }
 }
 
-// File: contracts/utils/GeneratorCopyright.sol
-
-
-
-pragma solidity ^0.7.0;
-
-/**
- * @title GeneratorCopyright
- * @author BEP20 Generator (https://vittominacori.github.io/bep20-generator)
- * @dev Implementation of the GeneratorCopyright
- */
-contract GeneratorCopyright {
-
-    string private constant _GENERATOR = "https://vittominacori.github.io/bep20-generator";
-    string private _version;
-
-    constructor (string memory version_) {
-        _version = version_;
-    }
-
-    /**
-     * @dev Returns the token generator tool.
-     */
-    function generator() public pure returns (string memory) {
-        return _GENERATOR;
-    }
-
-    /**
-     * @dev Returns the token generator version.
-     */
-    function version() public view returns (string memory) {
-        return _version;
-    }
-}
-
-// File: contracts/token/BEP20/SimpleBEP20.sol
+// File: contracts/token/BEP20/UnlimitedBEP20.sol
 
 
 
@@ -751,24 +812,44 @@ pragma solidity ^0.7.0;
 
 
 /**
- * @title SimpleBEP20
- * @author BEP20 Generator (https://vittominacori.github.io/bep20-generator)
- * @dev Implementation of the SimpleBEP20
+ * @title UnlimitedBEP20
+ * @dev Implementation of the UnlimitedBEP20
  */
-contract SimpleBEP20 is BEP20, ServicePayer, GeneratorCopyright("v1.2.0") {
+contract UnlimitedBEP20 is BEP20Mintable, BEP20Burnable, ServicePayer {
 
     constructor (
         string memory name,
         string memory symbol,
+        uint8 decimals,
         uint256 initialBalance,
         address payable feeReceiver
     )
-        BEP20(name, symbol)
-        ServicePayer(feeReceiver, "SimpleBEP20")
-        payable
+      BEP20(name, symbol)
+      ServicePayer(feeReceiver, "UnlimitedBEP20")
+      payable
     {
-        require(initialBalance > 0, "SimpleBEP20: supply cannot be zero");
-
+        _setupDecimals(decimals);
         _mint(_msgSender(), initialBalance);
+    }
+
+    /**
+     * @dev Function to mint tokens.
+     *
+     * NOTE: restricting access to owner only. See {BEP20Mintable-mint}.
+     *
+     * @param account The address that will receive the minted tokens
+     * @param amount The amount of tokens to mint
+     */
+    function _mint(address account, uint256 amount) internal override onlyOwner {
+        super._mint(account, amount);
+    }
+
+    /**
+     * @dev Function to stop minting new tokens.
+     *
+     * NOTE: restricting access to owner only. See {BEP20Mintable-finishMinting}.
+     */
+    function _finishMinting() internal override onlyOwner {
+        super._finishMinting();
     }
 }
