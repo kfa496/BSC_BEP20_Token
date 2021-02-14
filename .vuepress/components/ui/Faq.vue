@@ -40,13 +40,17 @@
                                    @click.prevent
                                    class="btn-block text-reset text-decoration-none">
                                     <span itemprop="name">
-                                        What's the difference between Fixed, Capped and Unlimited Supply?
+                                        What's the difference between 100k, Fixed, Capped and Unlimited Supply?
                                     </span>
                                 </a>
                             </b-card-header>
                             <b-collapse id="difference-between-fixed-capped" class="p-4" accordion="features-accordion">
                                 <b-card-text itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
                                     <span itemprop="text">
+                                        <b>100k</b><br>
+                                        Your token supply will be 100.000.
+                                        The entire token supply will be generated during deploy and sent to Token Owner
+                                        wallet. You can't increase or reduce supply later.<br><br>
                                         <b>Fixed Supply</b><br>
                                         The entire token supply will be generated during deploy and sent to Token Owner
                                         wallet. You can't increase or reduce supply later.<br><br>
@@ -143,12 +147,13 @@
                             <b-collapse id="will-copyright-be-an-issue" class="p-4" accordion="features-accordion">
                                 <b-card-text itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
                                     <span itemprop="text">
-                                        No. BEP20 Generator code is released under MIT License so, using SimpleBEP20 for
-                                        FREE, you will have a view method in your Smart Contract named "generator"
-                                        showing a link to this page. You will also have a disclaimer in source code. It
-                                        is not an issue for you because of your Token will be fully compliant with BEP20
-                                        definition. You can remove it by choosing a token type with remove Copyright
-                                        feature.
+                                        No. BEP20 Generator code is released under MIT License so, using TestERC20 for
+                                        FREE or SimpleBEP20, you will have a view method in your Smart Contract named
+                                        "generator" showing a link to this page.
+                                        You will also have a disclaimer in source code.
+                                        It is not an issue for you because of your Token will be fully compliant with
+                                        BEP20 definition.
+                                        You can remove it by choosing a token type with remove Copyright feature.
                                     </span>
                                 </b-card-text>
                             </b-collapse>
