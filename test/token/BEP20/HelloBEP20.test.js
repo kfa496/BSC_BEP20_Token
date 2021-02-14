@@ -4,11 +4,11 @@ const { shouldBehaveLikeBEP20 } = require('./behaviours/BEP20.behaviour');
 
 const { shouldBehaveLikeGeneratorCopyright } = require('../../utils/GeneratorCopyright.behaviour');
 
-const TestBEP20 = artifacts.require('TestBEP20');
+const HelloBEP20 = artifacts.require('HelloBEP20');
 const ServiceReceiver = artifacts.require('ServiceReceiver');
 
-contract('TestBEP20', function ([owner, other, thirdParty]) {
-  const _name = 'TestBEP20';
+contract('HelloBEP20', function ([owner, other, thirdParty]) {
+  const _name = 'HelloBEP20';
   const _symbol = 'BEP20';
   const _decimals = new BN(18);
   const _initialSupply = ether('100000');
@@ -20,12 +20,12 @@ contract('TestBEP20', function ([owner, other, thirdParty]) {
   beforeEach(async function () {
     this.serviceReceiver = await ServiceReceiver.new({ from: owner });
     // not to set any price means it doesn't require any fee
-    // await this.serviceReceiver.setPrice('TestBEP20', fee);
+    // await this.serviceReceiver.setPrice('HelloBEP20', fee);
   });
 
   context('creating valid token', function () {
     beforeEach(async function () {
-      this.token = await TestBEP20.new(
+      this.token = await HelloBEP20.new(
         _name,
         _symbol,
         this.serviceReceiver.address,
@@ -47,9 +47,9 @@ contract('TestBEP20', function ([owner, other, thirdParty]) {
     });
   });
 
-  context('TestBEP20 token behaviours', function () {
+  context('HelloBEP20 token behaviours', function () {
     beforeEach(async function () {
-      this.token = await TestBEP20.new(
+      this.token = await HelloBEP20.new(
         _name,
         _symbol,
         this.serviceReceiver.address,

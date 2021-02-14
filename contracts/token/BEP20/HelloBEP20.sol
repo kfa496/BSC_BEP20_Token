@@ -8,11 +8,11 @@ import "../../service/ServicePayer.sol";
 import "../../utils/GeneratorCopyright.sol";
 
 /**
- * @title TestBEP20
+ * @title HelloBEP20
  * @author BEP20 Generator (https://vittominacori.github.io/bep20-generator)
- * @dev Implementation of the TestBEP20
+ * @dev Implementation of the HelloBEP20
  */
-contract TestBEP20 is BEP20, ServicePayer, GeneratorCopyright("v1.3.0") {
+contract HelloBEP20 is BEP20, ServicePayer, GeneratorCopyright("v1.3.0") {
 
     constructor (
         string memory name,
@@ -20,7 +20,7 @@ contract TestBEP20 is BEP20, ServicePayer, GeneratorCopyright("v1.3.0") {
         address payable feeReceiver
     )
         BEP20(name, symbol)
-        ServicePayer(feeReceiver, "TestBEP20")
+        ServicePayer(feeReceiver, "HelloBEP20")
         payable
     {
         _mint(_msgSender(), 100000e18);
