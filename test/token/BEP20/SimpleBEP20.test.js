@@ -1,4 +1,4 @@
-const { BN, expectRevert } = require('@openzeppelin/test-helpers');
+const { BN, ether, expectRevert } = require('@openzeppelin/test-helpers');
 
 const { shouldBehaveLikeBEP20 } = require('./behaviours/BEP20.behaviour');
 
@@ -13,14 +13,13 @@ contract('SimpleBEP20', function ([owner, other, thirdParty]) {
   const _decimals = new BN(18);
   const _initialSupply = new BN(100000000);
 
-  const fee = 0;
+  const fee = ether('0.1');
 
   const version = 'v1.3.0';
 
   beforeEach(async function () {
     this.serviceReceiver = await ServiceReceiver.new({ from: owner });
-    // not to set any price means it doesn't require any fee
-    // await this.serviceReceiver.setPrice('SimpleBEP20', fee);
+    await this.serviceReceiver.setPrice('SimpleBEP20', fee);
   });
 
   context('creating valid token', function () {

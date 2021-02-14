@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
 
 /*
- * Token has been generated using https://vittominacori.github.io/bep20-generator/
+ * Token has been generated for FREE using https://vittominacori.github.io/bep20-generator/
  *
  * NOTE: "Contract Source Code Verified (Similar Match)" means that this Token is similar to other tokens deployed
  *  using the same generator. It is not an issue. It means that you won't need to verify your source code because of
@@ -9,7 +9,7 @@
  *
  * DISCLAIMER: GENERATOR'S AUTHOR IS FREE OF ANY LIABILITY REGARDING THE TOKEN AND THE USE THAT IS MADE OF IT.
  *  The following code is provided under MIT License. Anyone can use it as per their needs.
- *  The generator's purpose is to make people able to tokenize their ideas without coding.
+ *  The generator's purpose is to make people able to tokenize their ideas without coding or paying for it.
  *  Source code is well tested and continuously updated to reduce risk of bugs and to introduce language optimizations.
  *  Anyway the purchase of tokens involves a high degree of risk. Before acquiring tokens, it is recommended to
  *  carefully weighs all the information and risks detailed in Token owner's Conditions.
@@ -796,7 +796,7 @@ contract GeneratorCopyright {
     }
 }
 
-// File: contracts/token/BEP20/SimpleBEP20.sol
+// File: contracts/token/BEP20/TestBEP20.sol
 
 
 
@@ -806,24 +806,21 @@ pragma solidity ^0.7.0;
 
 
 /**
- * @title SimpleBEP20
+ * @title TestBEP20
  * @author BEP20 Generator (https://vittominacori.github.io/bep20-generator)
- * @dev Implementation of the SimpleBEP20
+ * @dev Implementation of the TestBEP20
  */
-contract SimpleBEP20 is BEP20, ServicePayer, GeneratorCopyright("v1.3.0") {
+contract TestBEP20 is BEP20, ServicePayer, GeneratorCopyright("v1.3.0") {
 
     constructor (
         string memory name,
         string memory symbol,
-        uint256 initialBalance,
         address payable feeReceiver
     )
         BEP20(name, symbol)
-        ServicePayer(feeReceiver, "SimpleBEP20")
+        ServicePayer(feeReceiver, "TestBEP20")
         payable
     {
-        require(initialBalance > 0, "SimpleBEP20: supply cannot be zero");
-
-        _mint(_msgSender(), initialBalance);
+        _mint(_msgSender(), 100000e18);
     }
 }
