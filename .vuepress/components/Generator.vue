@@ -161,6 +161,7 @@
                                                         v-model.trim="token.initialBalance"
                                                         size="lg"
                                                         v-on:update="updateCap"
+                                                        :disabled="token.supplyType === '100k'"
                                                         :class="{'is-invalid': errors.length > 0}"
                                                         min="0"
                                                         step="1">
@@ -190,7 +191,7 @@
                                                         type="number"
                                                         v-model.trim="token.cap"
                                                         size="lg"
-                                                        :disabled="token.supplyType === 'Fixed'"
+                                                        :disabled="['100k', 'Fixed'].includes(token.supplyType)"
                                                         :class="{'is-invalid': errors.length > 0}"
                                                         min="1"
                                                         step="1">
@@ -215,7 +216,7 @@
                                                            v-model="token.supplyType"
                                                            disabled
                                                            size="sm">
-                                                <option v-for="(n) in ['Fixed', 'Unlimited', 'Capped']" :value="n">
+                                                <option v-for="(n) in ['100k', 'Fixed', 'Unlimited', 'Capped']" :value="n">
                                                     {{ n }}
                                                 </option>
                                             </b-form-select>
@@ -472,6 +473,7 @@
         this.initToken(this.tokenType);
 
         this.updateTokenDetails();
+        this.updateSupply();
         this.updateCap();
 
         try {
@@ -626,7 +628,10 @@
         this.token.decimals = detail.customizeDecimals ? this.token.decimals : 18;
       },
       updateCap () {
-        this.token.cap = this.token.supplyType === 'Fixed' ? this.token.initialBalance : this.token.cap;
+        this.token.cap = ['100k', 'Fixed'].includes(this.token.supplyType) ? this.token.initialBalance : this.token.cap;
+      },
+      updateSupply () {
+        this.token.initialBalance = this.token.supplyType === 'Fixed' ? this.token.initialBalance : (this.token.supplyType === '100k' ? 100000 : this.token.cap); // eslint-disable-line max-len
       },
       getDeployArguments () {
         const name = this.token.name;
@@ -638,6 +643,9 @@
         const params = [name, symbol];
 
         switch (this.tokenType) {
+        case 'TestBEP20':
+          // nothing else
+          break;
         case 'SimpleBEP20':
           params.push(initialBalance);
           break;

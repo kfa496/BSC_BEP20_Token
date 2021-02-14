@@ -3,8 +3,22 @@ export default {
     return {
       tokenDetails: [
         {
+          name: 'TestBEP20',
+          version: '1.3.0',
+          standard: true,
+          verified: true,
+          detailed: true,
+          customizeDecimals: false,
+          supplyType: '100k',
+          accessType: 'Ownable',
+          mintable: false,
+          burnable: false,
+          removeCopyright: false,
+          price: 0,
+        },
+        {
           name: 'SimpleBEP20',
-          version: '1.0.0',
+          version: '1.3.0',
           standard: true,
           verified: true,
           detailed: true,
@@ -14,7 +28,7 @@ export default {
           mintable: false,
           burnable: false,
           removeCopyright: false,
-          price: 0,
+          price: 0.5,
         },
         {
           name: 'StandardBEP20',

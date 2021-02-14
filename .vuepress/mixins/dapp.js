@@ -1,6 +1,7 @@
 import config from '../config';
 import utils from './utils';
 
+import TestBEP20 from '../abi/token/TestBEP20.json';
 import SimpleBEP20 from '../abi/token/SimpleBEP20.json';
 import StandardBEP20 from '../abi/token/StandardBEP20.json';
 import BurnableBEP20 from '../abi/token/BurnableBEP20.json';
@@ -46,6 +47,7 @@ export default {
       },
       serviceReceiver: config.serviceReceiver,
       tokenList: {
+        TestBEP20,
         SimpleBEP20,
         StandardBEP20,
         BurnableBEP20,
