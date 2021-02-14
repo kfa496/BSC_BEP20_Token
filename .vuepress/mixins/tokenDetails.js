@@ -3,7 +3,7 @@ export default {
     return {
       tokenDetails: [
         {
-          name: 'TestBEP20',
+          name: 'HelloBEP20',
           version: '1.3.0',
           standard: true,
           verified: true,

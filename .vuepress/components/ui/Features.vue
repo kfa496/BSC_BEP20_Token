@@ -58,7 +58,7 @@
                 <b-alert class="mb-3" variant="warning" show>
                     <h4 class="alert-heading">Copyright</h4>
                     <p>
-                        Deploying TestBEP20 for FREE or SimpleBEP20, a link pointing to this page will be added to
+                        Deploying HelloBEP20 for FREE or SimpleBEP20, a link pointing to this page will be added to
                         your contract.
                         Your Token will be fully compliant with the BEP20 Standard and you can use it without issues.
                         It is only a little credit to advertise BEP20 Token Generator.

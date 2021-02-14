@@ -643,7 +643,7 @@
         const params = [name, symbol];
 
         switch (this.tokenType) {
-        case 'TestBEP20':
+        case 'HelloBEP20':
           // nothing else
           break;
         case 'SimpleBEP20':
