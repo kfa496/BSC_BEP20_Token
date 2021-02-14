@@ -49,21 +49,26 @@
 <!-- 2 -->
 <g id="node3" class="node">
 <title>2</title>
-<polygon fill="#f2f2f2" stroke="#000000" points="959.7406,-1031.9 959.7406,-1257.5 1317.1334,-1257.5 1317.1334,-1031.9 959.7406,-1031.9"/>
-<text text-anchor="middle" x="1138.437" y="-1240.9" font-family="Times,serif" font-size="14.00" fill="#000000">&lt;&lt;Library&gt;&gt;</text>
-<text text-anchor="middle" x="1138.437" y="-1224.1" font-family="Times,serif" font-size="14.00" fill="#000000">SafeMath</text>
-<polyline fill="none" stroke="#000000" points="959.7406,-1215.9 1317.1334,-1215.9 "/>
-<text text-anchor="middle" x="1138.437" y="-1199.3" font-family="Times,serif" font-size="14.00" fill="#000000"> </text>
-<polyline fill="none" stroke="#000000" points="959.7406,-1191.1 1317.1334,-1191.1 "/>
-<text text-anchor="start" x="967.7406" y="-1174.5" font-family="Times,serif" font-size="14.00" fill="#000000">Internal:</text>
-<text text-anchor="start" x="967.7406" y="-1157.7" font-family="Times,serif" font-size="14.00" fill="#000000"> &#160;&#160;&#160;add(a: uint256, b: uint256): uint256</text>
-<text text-anchor="start" x="967.7406" y="-1140.9" font-family="Times,serif" font-size="14.00" fill="#000000"> &#160;&#160;&#160;sub(a: uint256, b: uint256): uint256</text>
-<text text-anchor="start" x="967.7406" y="-1124.1" font-family="Times,serif" font-size="14.00" fill="#000000"> &#160;&#160;&#160;sub(a: uint256, b: uint256, errorMessage: string): uint256</text>
-<text text-anchor="start" x="967.7406" y="-1107.3" font-family="Times,serif" font-size="14.00" fill="#000000"> &#160;&#160;&#160;mul(a: uint256, b: uint256): uint256</text>
-<text text-anchor="start" x="967.7406" y="-1090.5" font-family="Times,serif" font-size="14.00" fill="#000000"> &#160;&#160;&#160;div(a: uint256, b: uint256): uint256</text>
-<text text-anchor="start" x="967.7406" y="-1073.7" font-family="Times,serif" font-size="14.00" fill="#000000"> &#160;&#160;&#160;div(a: uint256, b: uint256, errorMessage: string): uint256</text>
-<text text-anchor="start" x="967.7406" y="-1056.9" font-family="Times,serif" font-size="14.00" fill="#000000"> &#160;&#160;&#160;mod(a: uint256, b: uint256): uint256</text>
-<text text-anchor="start" x="967.7406" y="-1040.1" font-family="Times,serif" font-size="14.00" fill="#000000"> &#160;&#160;&#160;mod(a: uint256, b: uint256, errorMessage: string): uint256</text>
+<polygon fill="#f2f2f2" stroke="#000000" points="959.7406,-989.9 959.7406,-1299.5 1317.1334,-1299.5 1317.1334,-989.9 959.7406,-989.9"/>
+<text text-anchor="middle" x="1138.437" y="-1282.9" font-family="Times,serif" font-size="14.00" fill="#000000">&lt;&lt;Library&gt;&gt;</text>
+<text text-anchor="middle" x="1138.437" y="-1266.1" font-family="Times,serif" font-size="14.00" fill="#000000">SafeMath</text>
+<polyline fill="none" stroke="#000000" points="959.7406,-1257.9 1317.1334,-1257.9 "/>
+<text text-anchor="middle" x="1138.437" y="-1241.3" font-family="Times,serif" font-size="14.00" fill="#000000"> </text>
+<polyline fill="none" stroke="#000000" points="959.7406,-1233.1 1317.1334,-1233.1 "/>
+<text text-anchor="start" x="967.7406" y="-1216.5" font-family="Times,serif" font-size="14.00" fill="#000000">Internal:</text>
+<text text-anchor="start" x="967.7406" y="-1199.7" font-family="Times,serif" font-size="14.00" fill="#000000"> &#160;&#160;&#160;tryAdd(a: uint256, b: uint256): (bool, uint256)</text>
+<text text-anchor="start" x="967.7406" y="-1182.9" font-family="Times,serif" font-size="14.00" fill="#000000"> &#160;&#160;&#160;trySub(a: uint256, b: uint256): (bool, uint256)</text>
+<text text-anchor="start" x="967.7406" y="-1166.1" font-family="Times,serif" font-size="14.00" fill="#000000"> &#160;&#160;&#160;tryMul(a: uint256, b: uint256): (bool, uint256)</text>
+<text text-anchor="start" x="967.7406" y="-1149.3" font-family="Times,serif" font-size="14.00" fill="#000000"> &#160;&#160;&#160;tryDiv(a: uint256, b: uint256): (bool, uint256)</text>
+<text text-anchor="start" x="967.7406" y="-1132.5" font-family="Times,serif" font-size="14.00" fill="#000000"> &#160;&#160;&#160;tryMod(a: uint256, b: uint256): (bool, uint256)</text>
+<text text-anchor="start" x="967.7406" y="-1115.7" font-family="Times,serif" font-size="14.00" fill="#000000"> &#160;&#160;&#160;add(a: uint256, b: uint256): uint256</text>
+<text text-anchor="start" x="967.7406" y="-1098.9" font-family="Times,serif" font-size="14.00" fill="#000000"> &#160;&#160;&#160;sub(a: uint256, b: uint256): uint256</text>
+<text text-anchor="start" x="967.7406" y="-1082.1" font-family="Times,serif" font-size="14.00" fill="#000000"> &#160;&#160;&#160;mul(a: uint256, b: uint256): uint256</text>
+<text text-anchor="start" x="967.7406" y="-1065.3" font-family="Times,serif" font-size="14.00" fill="#000000"> &#160;&#160;&#160;div(a: uint256, b: uint256): uint256</text>
+<text text-anchor="start" x="967.7406" y="-1048.5" font-family="Times,serif" font-size="14.00" fill="#000000"> &#160;&#160;&#160;mod(a: uint256, b: uint256): uint256</text>
+<text text-anchor="start" x="967.7406" y="-1031.7" font-family="Times,serif" font-size="14.00" fill="#000000"> &#160;&#160;&#160;sub(a: uint256, b: uint256, errorMessage: string): uint256</text>
+<text text-anchor="start" x="967.7406" y="-1014.9" font-family="Times,serif" font-size="14.00" fill="#000000"> &#160;&#160;&#160;div(a: uint256, b: uint256, errorMessage: string): uint256</text>
+<text text-anchor="start" x="967.7406" y="-998.1" font-family="Times,serif" font-size="14.00" fill="#000000"> &#160;&#160;&#160;mod(a: uint256, b: uint256, errorMessage: string): uint256</text>
 </g>
 <!-- 3 -->
 <g id="node4" class="node">
@@ -134,8 +139,8 @@
 <!-- 4&#45;&gt;2 -->
 <g id="edge4" class="edge">
 <title>4&#45;&gt;2</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M940.1838,-931.4825C969.9596,-963.5058 999.4684,-995.2419 1026.2624,-1024.0583"/>
-<polygon fill="#000000" stroke="#000000" points="1024.006,-1026.7717 1033.3787,-1031.7118 1029.1324,-1022.0051 1024.006,-1026.7717"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M940.1838,-931.4825C956.1234,-948.6252 971.9864,-965.6856 987.3974,-982.2598"/>
+<polygon fill="#000000" stroke="#000000" points="985.0724,-984.8993 994.445,-989.8394 990.1987,-980.1326 985.0724,-984.8993"/>
 </g>
 <!-- 4&#45;&gt;3 -->
 <g id="edge3" class="edge">
@@ -190,8 +195,8 @@
 <!-- 6&#45;&gt;2 -->
 <g id="edge8" class="edge">
 <title>6&#45;&gt;2</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M1021.7021,-354.6084C1042.4618,-495.1151 1093.0171,-837.2863 1120.2869,-1021.8558"/>
-<polygon fill="#000000" stroke="#000000" points="1116.8441,-1022.5001 1121.7682,-1031.8811 1123.7689,-1021.4769 1116.8441,-1022.5001"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M1021.7021,-354.6084C1040.9646,-484.9819 1085.88,-788.9808 1114.0435,-979.5983"/>
+<polygon fill="#000000" stroke="#000000" points="1110.6148,-980.3387 1115.5389,-989.7197 1117.5396,-979.3155 1110.6148,-980.3387"/>
 </g>
 <!-- 6&#45;&gt;4 -->
 <g id="edge7" class="edge">
