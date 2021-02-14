@@ -209,7 +209,7 @@
                                             header-text-variant="white"
                                             class="mt-3">
                                         <b-form-group
-                                                description="Your Token Supply Type."
+                                                :description="['100k', 'Fixed', 'Unlimited', 'Capped'].join(', ')"
                                                 label="Supply Type"
                                                 label-for="supplyType">
                                             <b-form-select id="supplyType"
@@ -222,7 +222,7 @@
                                             </b-form-select>
                                         </b-form-group>
                                         <b-form-group
-                                                description="Your Token Access Type."
+                                                :description="['None', 'Ownable', 'Role Based'].join(', ')"
                                                 label="Access Type"
                                                 label-for="accessType">
                                             <b-form-select id="accessType"

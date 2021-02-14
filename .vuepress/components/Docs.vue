@@ -17,86 +17,23 @@
                 </div>
                 <b-card v-if="!loading" bg-variant="transparent" border-variant="0">
                     <b-row>
-                        <b-col lg="12">
+                        <b-col lg="8">
                             <b-card header="Token Type"
                                     header-bg-variant="dark"
                                     header-text-variant="white"
                                     class="mt-3">
                                 <b-form-group
-                                        description="Choose your Token."
-                                        label="Token Type *"
-                                        label-for="tokenType">
+                                    description="Choose your Token."
+                                    label="Token Type *"
+                                    label-for="tokenType">
                                     <b-form-select id="tokenType"
                                                    v-model="tokenType"
                                                    size="lg"
                                                    @input="loadToken">
-                                        <option v-for="(n, k) in tokenList" :value="k">{{ n.contractName }}
-                                        </option>
+                                        <option v-for="(n, k) in tokenList" :value="k">{{ n.contractName }}</option>
                                     </b-form-select>
                                 </b-form-group>
                             </b-card>
-                        </b-col>
-                        <b-col lg="4">
-                            <b-card no-body
-                                    bg-variant="light"
-                                    header="Token Features"
-                                    header-bg-variant="dark"
-                                    header-text-variant="white"
-                                    class="mt-3">
-                                <b-list-group flush>
-                                    <b-list-group-item class="d-flex justify-content-between align-items-center">
-                                        BEP20 Compliant <ui--checkmark :value="token.standard"></ui--checkmark>
-                                    </b-list-group-item>
-
-                                    <b-list-group-item class="d-flex justify-content-between align-items-center">
-                                        Verified Source Code <ui--checkmark :value="token.verified"></ui--checkmark>
-                                    </b-list-group-item>
-
-                                    <b-list-group-item class="d-flex justify-content-between align-items-center">
-                                        Detailed <ui--checkmark :value="token.detailed"></ui--checkmark>
-                                    </b-list-group-item>
-
-                                    <b-list-group-item class="d-flex justify-content-between align-items-center">
-                                        Customizable Decimals
-                                        <ui--checkmark :value="token.customizeDecimals"></ui--checkmark>
-                                    </b-list-group-item>
-
-                                    <b-list-group-item class="d-flex justify-content-between align-items-center">
-                                        Remove Copyright <ui--checkmark :value="token.removeCopyright"></ui--checkmark>
-                                    </b-list-group-item>
-
-                                    <b-list-group-item class="d-flex justify-content-between align-items-center">
-                                        Supply Type
-                                        <b-badge :variant="token.supplyType === 'Capped' ? 'success' : (token.supplyType === 'Unlimited' ? 'info' : (token.supplyType === 'Fixed' ? 'warning' : 'danger'))">
-                                            {{ token.supplyType }}
-                                        </b-badge>
-                                    </b-list-group-item>
-
-                                    <b-list-group-item class="d-flex justify-content-between align-items-center">
-                                        Access Type
-                                        <b-badge :variant="token.accessType === 'Role Based' ? 'success' : (token.accessType === 'Ownable' ? 'info' : 'warning')">
-                                            {{ token.accessType}}
-                                        </b-badge>
-                                    </b-list-group-item>
-
-                                    <b-list-group-item class="d-flex justify-content-between align-items-center">
-                                        Burnable <ui--checkmark :value="token.burnable"></ui--checkmark>
-                                    </b-list-group-item>
-
-                                    <b-list-group-item class="d-flex justify-content-between align-items-center">
-                                        Mintable <ui--checkmark :value="token.mintable"></ui--checkmark>
-                                    </b-list-group-item>
-
-                                    <b-list-group-item
-                                            variant="warning"
-                                            :to="{ path: '/create-token/', query: { tokenType: token.name }}"
-                                            class="justify-content-between align-items-center text-center py-3">
-                                        Create
-                                    </b-list-group-item>
-                                </b-list-group>
-                            </b-card>
-                        </b-col>
-                        <b-col lg="8">
                             <b-card no-body
                                     bg-variant="light"
                                     header="Token Details"
@@ -104,7 +41,7 @@
                                     header-text-variant="white"
                                     class="mt-3">
                                 <b-list-group flush>
-                                    <b-list-group-item>
+                                    <b-list-group-item class="py-4">
                                         <b-link :href="`https://github.com/vittominacori/bep20-generator/blob/v${token.version}/dist/${contracts.token.contractName}.dist.sol`"
                                                 target="_blank">
                                             <b-img :src="`https://img.shields.io/badge/version-${token.version}-blue`"></b-img>
@@ -119,40 +56,40 @@
                                             <b-img src="https://img.shields.io/github/license/vittominacori/bep20-generator.svg"></b-img>
                                         </b-link>
                                     </b-list-group-item>
-                                    <b-list-group-item>
+                                    <b-list-group-item class="py-4">
                                         Contract Name: <b>{{ contracts.token.contractName }}</b>
                                     </b-list-group-item>
-                                    <b-list-group-item>
+                                    <b-list-group-item class="py-4">
                                         Compiler: <b>{{ contracts.token.compiler.version }}</b>
                                     </b-list-group-item>
-                                    <b-list-group-item>
+                                    <b-list-group-item class="py-4">
                                         Optimization: <b>Yes</b>
                                     </b-list-group-item>
-                                    <b-list-group-item>
+                                    <b-list-group-item class="py-4">
                                         Runs (Optimizer): <b>200</b>
                                     </b-list-group-item>
-                                    <b-list-group-item>
+                                    <b-list-group-item class="py-4">
                                         Control Flow:
                                         <b-link :href="controlFlow"
                                                 target="_blank">
                                             <b>{{ contracts.token.contractName }}.png</b>
                                         </b-link>
                                     </b-list-group-item>
-                                    <b-list-group-item>
+                                    <b-list-group-item class="py-4">
                                         Inheritance Tree:
                                         <b-link :href="inheritanceTree"
                                                 target="_blank">
                                             <b>{{ contracts.token.contractName }}.png</b>
                                         </b-link>
                                     </b-list-group-item>
-                                    <b-list-group-item>
+                                    <b-list-group-item class="py-4">
                                         UML:
                                         <b-link :href="uml"
                                                 target="_blank">
                                             <b>{{ contracts.token.contractName }}.svg</b>
                                         </b-link>
                                     </b-list-group-item>
-                                    <b-list-group-item>
+                                    <b-list-group-item class="py-4">
                                         <div class="form-group">
                                             <label>ABI:</label>
                                             <b-form-textarea readonly
@@ -161,6 +98,117 @@
                                                              v-model="contracts.token.stringifiedAbi">
                                             </b-form-textarea>
                                         </div>
+                                    </b-list-group-item>
+                                </b-list-group>
+                            </b-card>
+                        </b-col>
+                        <b-col lg="4">
+                            <b-card no-body
+                                    bg-variant="light"
+                                    header="Token Features"
+                                    header-bg-variant="dark"
+                                    header-text-variant="white"
+                                    class="mt-3">
+                                <b-list-group flush>
+                                    <b-list-group-item class="d-flex justify-content-between align-items-center">
+                                        <div>
+                                            BEP20 Compliant<br>
+                                            <small class="text-muted">
+                                                Your Token will be compliant with the BEP20 Standard.
+                                            </small>
+                                        </div>
+                                        <ui--checkmark :value="token.standard"></ui--checkmark>
+                                    </b-list-group-item>
+
+                                    <b-list-group-item class="d-flex justify-content-between align-items-center">
+                                        <div>
+                                            Verified Source Code<br>
+                                            <small class="text-muted">
+                                                Your Token Source Code will be automatically verified on BscScan.
+                                            </small>
+                                        </div>
+                                        <ui--checkmark :value="token.verified"></ui--checkmark>
+                                    </b-list-group-item>
+
+                                    <b-list-group-item class="d-flex justify-content-between align-items-center">
+                                        <div>
+                                            Detailed<br>
+                                            <small class="text-muted">
+                                                Your Token will have name, symbol and decimal amount.
+                                            </small>
+                                        </div>
+                                        <ui--checkmark :value="token.detailed"></ui--checkmark>
+                                    </b-list-group-item>
+
+                                    <b-list-group-item class="d-flex justify-content-between align-items-center">
+                                        <div>
+                                            Customizable Decimals<br>
+                                            <small class="text-muted">
+                                                You can customize the decimal amount. 18 otherwise.
+                                            </small>
+                                        </div>
+                                        <ui--checkmark :value="token.customizeDecimals"></ui--checkmark>
+                                    </b-list-group-item>
+
+                                    <b-list-group-item class="d-flex justify-content-between align-items-center">
+                                        <div>
+                                            Remove Copyright<br>
+                                            <small class="text-muted">
+                                                Remove the link pointing to this page from your contract.
+                                            </small>
+                                        </div>
+                                        <ui--checkmark :value="token.removeCopyright"></ui--checkmark>
+                                    </b-list-group-item>
+
+                                    <b-list-group-item class="d-flex justify-content-between align-items-center">
+                                        <div>
+                                            Supply Type<br>
+                                            <small class="text-muted">
+                                                Choose between 100k, Fixed, Unlimited or Capped.
+                                            </small>
+                                        </div>
+                                        <b-badge :variant="token.supplyType === 'Capped' ? 'success' : (token.supplyType === 'Unlimited' ? 'info' : (token.supplyType === 'Fixed' ? 'warning' : 'danger'))">
+                                            {{ token.supplyType }}
+                                        </b-badge>
+                                    </b-list-group-item>
+
+                                    <b-list-group-item class="d-flex justify-content-between align-items-center">
+                                        <div>
+                                            Accesss Type<br>
+                                            <small class="text-muted">
+                                                Choose between None, Ownable or Role Based.
+                                            </small>
+                                        </div>
+                                        <b-badge :variant="token.accessType === 'Role Based' ? 'success' : (token.accessType === 'Ownable' ? 'info' : 'warning')">
+                                            {{ token.accessType }}
+                                        </b-badge>
+                                    </b-list-group-item>
+
+                                    <b-list-group-item class="d-flex justify-content-between align-items-center">
+                                        <div>
+                                            Burnable<br>
+                                            <small class="text-muted">
+                                                Your Token can be burnt.
+                                            </small>
+                                        </div>
+                                        <ui--checkmark :value="token.burnable"></ui--checkmark>
+                                    </b-list-group-item>
+
+                                    <b-list-group-item class="d-flex justify-content-between align-items-center">
+                                        <div>
+                                            Mintable<br>
+                                            <small class="text-muted">
+                                                You will be able to generate tokens by minting them.
+                                            </small>
+                                        </div>
+                                        <ui--checkmark :value="token.mintable"></ui--checkmark>
+                                    </b-list-group-item>
+
+                                    <b-list-group-item
+                                        variant="warning"
+                                        :to="{ path: '/create-token/', query: { tokenType: token.name }}"
+                                        class="justify-content-between align-items-center text-center py-3">
+                                        Create
                                     </b-list-group-item>
                                 </b-list-group>
                             </b-card>
