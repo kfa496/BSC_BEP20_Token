@@ -72,6 +72,14 @@
                             Mintable <ui--checkmark :value="t.mintable"></ui--checkmark>
                         </b-list-group-item>
 
+                        <b-list-group-item class="d-flex justify-content-between align-items-center">
+                            Operable (ERC1363) <ui--checkmark :value="t.operable"></ui--checkmark>
+                        </b-list-group-item>
+
+                        <b-list-group-item class="d-flex justify-content-between align-items-center">
+                            Token Recover <ui--checkmark :value="t.tokenRecover"></ui--checkmark>
+                        </b-list-group-item>
+
                         <b-list-group-item variant="warning"
                                            :to="{ path: '/create-token/', query: { tokenType: t.name }}"
                                            class="justify-content-between align-items-center text-center py-3"

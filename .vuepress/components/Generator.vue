@@ -270,6 +270,24 @@
                                                 Mintable
                                             </b-form-checkbox>
                                         </b-form-group>
+                                        <b-form-group
+                                                description="Make a callback on the receiver contract.">
+                                            <b-form-checkbox v-model="token.operable"
+                                                             size="sm"
+                                                             disabled
+                                                             switch>
+                                                Operable (ERC1363)
+                                            </b-form-checkbox>
+                                        </b-form-group>
+                                        <b-form-group
+                                                description="Recover any BEP20 token sent into the contract for error.">
+                                            <b-form-checkbox v-model="token.tokenRecover"
+                                                             size="sm"
+                                                             disabled
+                                                             switch>
+                                                Token Recover
+                                            </b-form-checkbox>
+                                        </b-form-group>
                                     </b-card>
                                 </b-col>
                                 <b-col md="12" lg="4">
@@ -433,6 +451,8 @@
           accessType: 'None',
           mintable: false,
           burnable: false,
+          operable: false,
+          tokenRecover: false,
           removeCopyright: false,
         },
       };
@@ -622,6 +642,8 @@
         this.token.accessType = detail.accessType;
         this.token.mintable = detail.mintable;
         this.token.burnable = detail.burnable;
+        this.token.operable = detail.operable;
+        this.token.tokenRecover = detail.tokenRecover;
         this.token.removeCopyright = detail.removeCopyright;
         this.token.price = detail.price;
 
@@ -652,6 +674,7 @@
         case 'StandardBEP20':
         case 'BurnableBEP20':
         case 'UnlimitedBEP20':
+        case 'AmazingBEP20':
           params.push(decimals);
           params.push(initialBalance);
           break;

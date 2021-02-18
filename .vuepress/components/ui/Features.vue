@@ -53,6 +53,20 @@
                 </b-card-text>
             </b-card>
         </b-card-group>
+        <b-card-group deck>
+            <b-card class="mb-3" sub-title="Operable Token (ERC1363)">
+                <b-card-text>
+                    The Operable Token is a BEP20 compatible Token that can make a
+                    callback on the receiver contract to notify token transfers or token approvals.
+                </b-card-text>
+            </b-card>
+            <b-card class="mb-3" sub-title="Token Recover">
+                <b-card-text>
+                    There are lots of tokens lost forever into Smart Contracts.
+                    It allows the contract owner to recover any BEP20 token sent into the contract for error.
+                </b-card-text>
+            </b-card>
+        </b-card-group>
         <b-row>
             <b-col lg="12">
                 <b-alert class="mb-3" variant="warning" show>

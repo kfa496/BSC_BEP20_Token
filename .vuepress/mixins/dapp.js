@@ -8,6 +8,7 @@ import BurnableBEP20 from '../abi/token/BurnableBEP20.json';
 import MintableBEP20 from '../abi/token/MintableBEP20.json';
 import CommonBEP20 from '../abi/token/CommonBEP20.json';
 import UnlimitedBEP20 from '../abi/token/UnlimitedBEP20.json';
+import AmazingBEP20 from '../abi/token/AmazingBEP20.json';
 
 import ServiceReceiverArtifact from '../abi/service/ServiceReceiver.json';
 
@@ -54,6 +55,7 @@ export default {
         MintableBEP20,
         CommonBEP20,
         UnlimitedBEP20,
+        AmazingBEP20,
       },
       contracts: {
         token: null,

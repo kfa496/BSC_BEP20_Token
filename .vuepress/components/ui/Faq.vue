@@ -136,6 +136,83 @@
                                 itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
                             <b-card-header role="tab">
                                 <a v-b-toggle
+                                   href="#what-is-operable"
+                                   @click.prevent
+                                   class="btn-block text-reset text-decoration-none">
+                                    <span itemprop="name">
+                                        What is Operable Token?
+                                    </span>
+                                </a>
+                            </b-card-header>
+                            <b-collapse id="what-is-operable" class="p-4" accordion="features-accordion">
+                                <b-card-text itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                                    <span itemprop="text">
+                                        There is no way to execute code after a BEP-20 transfer or approval (i.e.
+                                        making a payment), so to make an action it is required to send another
+                                        transaction and pay GAS twice. Operable Token makes token payments easier and
+                                        working without the use of any other listener. It allows to make a callback
+                                        after a transfer or approval in a single transaction.<br>
+                                        There are many proposed uses of Ethereum Smart Contracts that can accept BEP-20
+                                        payments.<br>
+                                        Examples could be:
+                                        <ul>
+                                            <li>
+                                                to create a token payable crowdsale
+                                            </li>
+                                            <li>
+                                                selling services for tokens
+                                            </li>
+                                            <li>
+                                                paying invoices
+                                            </li>
+                                            <li>
+                                                making subscriptions
+                                            </li>
+                                        </ul>
+                                        Operable Token is derived by ERC1363.
+                                    </span>
+                                </b-card-text>
+                                <b-link href="https://eips.ethereum.org/EIPS/eip-1363"
+                                        class="card-link" target="_blank">
+                                    Discover ERC1363
+                                </b-link>
+                            </b-collapse>
+                        </b-card>
+                        <b-card no-body
+                                bg-variant="light"
+                                itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                            <b-card-header role="tab">
+                                <a v-b-toggle
+                                   href="#what-is-token-recover"
+                                   @click.prevent
+                                   class="btn-block text-reset text-decoration-none">
+                                    <span itemprop="name">
+                                        What is Token Recover?
+                                    </span>
+                                </a>
+                            </b-card-header>
+                            <b-collapse id="what-is-token-recover" class="p-4" accordion="features-accordion">
+                                <b-card-text itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                                    <span itemprop="text">
+                                        There are lots of tokens lost forever into Smart Contracts. Each Ethereum
+                                        contract is a potential token trap for BEP20 tokens. They can't be recovered so
+                                        it means money losses for end users.<br>
+                                        TokenRecover allows the contract owner to recover any BEP20 token sent into the
+                                        contract for error.
+                                        This behaviour is derived by ERC20 Token Recover.
+                                    </span>
+                                </b-card-text>
+                                <b-link href="https://vittominacori.github.io/eth-token-recover/"
+                                        class="card-link" target="_blank">
+                                    Discover Token Recover
+                                </b-link>
+                            </b-collapse>
+                        </b-card>
+                        <b-card no-body
+                                bg-variant="light"
+                                itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                            <b-card-header role="tab">
+                                <a v-b-toggle
                                    href="#will-copyright-be-an-issue"
                                    @click.prevent
                                    class="btn-block text-reset text-decoration-none">

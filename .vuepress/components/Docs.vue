@@ -204,6 +204,28 @@
                                         <ui--checkmark :value="token.mintable"></ui--checkmark>
                                     </b-list-group-item>
 
+                                    <b-list-group-item class="d-flex justify-content-between align-items-center">
+                                        <div>
+                                            Operable<br>
+                                            <small class="text-muted">
+                                                The Operable Token is a BEP20 compatible Token that can make a callback on
+                                                the receiver contract. Operable Token is derived by ERC1363.
+                                            </small>
+                                        </div>
+                                        <ui--checkmark :value="token.operable"></ui--checkmark>
+                                    </b-list-group-item>
+
+                                    <b-list-group-item class="d-flex justify-content-between align-items-center">
+                                        <div>
+                                            Token Recover<br>
+                                            <small class="text-muted">
+                                                It allows the contract owner to recover any BEP20 token sent into the
+                                                contract for error.
+                                            </small>
+                                        </div>
+                                        <ui--checkmark :value="token.tokenRecover"></ui--checkmark>
+                                    </b-list-group-item>
+
                                     <b-list-group-item
                                         variant="warning"
                                         :to="{ path: '/create-token/', query: { tokenType: token.name }}"
