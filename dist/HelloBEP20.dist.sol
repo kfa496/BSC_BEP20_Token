@@ -810,7 +810,7 @@ pragma solidity ^0.7.0;
  * @author BEP20 Generator (https://vittominacori.github.io/bep20-generator)
  * @dev Implementation of the HelloBEP20
  */
-contract HelloBEP20 is BEP20, ServicePayer, GeneratorCopyright("v1.3.0") {
+contract HelloBEP20 is BEP20, ServicePayer, GeneratorCopyright("v1.4.0") {
 
     constructor (
         string memory name,

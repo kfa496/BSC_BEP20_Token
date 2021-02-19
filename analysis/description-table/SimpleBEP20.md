@@ -5,7 +5,7 @@
 
 |  File Name  |  SHA-1 Hash  |
 |-------------|--------------|
-| dist/SimpleBEP20.dist.sol | b291a69e8ff8953a7a83c750229c936eb0364bcf |
+| dist/SimpleBEP20.dist.sol | dbc41c22b638f354a882e9cb74f7241b4d434b56 |
 
 
 ### Contracts Description Table
