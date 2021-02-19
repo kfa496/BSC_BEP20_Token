@@ -653,7 +653,7 @@
         this.token.cap = ['100k', 'Fixed'].includes(this.token.supplyType) ? this.token.initialBalance : this.token.cap;
       },
       updateSupply () {
-        this.token.initialBalance = this.token.supplyType === 'Fixed' ? this.token.initialBalance : (this.token.supplyType === '100k' ? 100000 : this.token.cap); // eslint-disable-line max-len
+        this.token.initialBalance = this.token.supplyType === '100k' ? 100000 : this.token.initialBalance; // eslint-disable-line max-len
       },
       getDeployArguments () {
         const name = this.token.name;

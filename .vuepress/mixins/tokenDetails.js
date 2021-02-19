@@ -96,7 +96,7 @@ export default {
           operable: false,
           tokenRecover: false,
           removeCopyright: true,
-          price: 8.5,
+          price: 6.5,
         },
         {
           name: 'UnlimitedBEP20',
@@ -112,7 +112,7 @@ export default {
           operable: false,
           tokenRecover: false,
           removeCopyright: true,
-          price: 9.5,
+          price: 7.5,
         },
         {
           name: 'AmazingBEP20',
@@ -128,7 +128,7 @@ export default {
           operable: true,
           tokenRecover: true,
           removeCopyright: true,
-          price: 9.5,
+          price: 8.5,
         },
       ],
     };
